@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.9" method="upgrade">
+ 
+	<name>COM_PAINT</name>
+	<creationDate>Jan 2020</creationDate>
+	<author>Andrzej Iwanski</author>
+	<authorEmail>andrzej.iwanski@poczta.onet.pl</authorEmail>
+	<authorUrl>http://www.iwanski.net</authorUrl>
+	<copyright>Copyright (C) 2019-2020 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>2.0</version>
+	<description>COM_PAINT_DESCRIPTION</description>
+ 
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+ 
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>paint.php</filename>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+	
+	<languages folder="site/language">
+		<language tag="en-GB">en-GB/en-GB.com_paint.ini</language>
+		<language tag="pl-PL">pl-PL/pl-PL.com_paint.ini</language>
+	</languages>
+	
+	<media destination="com_paint" folder="media">
+		<filename>index.html</filename>
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+	</media>
+ 
+	<administration>
+		<menu link='index.php&amp;option=com_paint'>COM_PAINT_MENU</menu>
+
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>paint.php</filename>
+			
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB/en-GB.com_paint.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_paint.sys.ini</language>
+			<language tag="pl-PL">pl-PL/pl-PL.com_paint.ini</language>
+			<language tag="pl-PL">pl-PL/pl-PL.com_paint.sys.ini</language>
+		</languages>
+	</administration>
+
+
+	<updateservers>
+		<server type="extension" name="Paint">http://iwanski.net/files/paint/update.xml</server>
+	</updateservers>
+</extension>
